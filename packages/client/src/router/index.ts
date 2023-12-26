@@ -25,7 +25,7 @@ const router = createRouter({
     {
       path: '/H5Camera',
       name: 'H5Camera',
-      component: () => import('../views/H5Camera.vue')
+      component: () => import('../views/H5Camera/index.vue')
     }
   ]
 })
