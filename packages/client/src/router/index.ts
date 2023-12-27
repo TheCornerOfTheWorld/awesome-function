@@ -31,6 +31,11 @@ const router = createRouter({
       path: '/EffectScope',
       name: 'EffectScope',
       component: () => import('../views/EffectScope/index.vue')
+    },
+    {
+      path: '/CssAnimation',
+      name: 'CssAnimation',
+      component: () => import('../views/CssAnimation/demo.vue')
     }
   ]
 })
