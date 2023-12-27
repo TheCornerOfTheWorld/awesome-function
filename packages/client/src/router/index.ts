@@ -26,6 +26,11 @@ const router = createRouter({
       path: '/H5Camera',
       name: 'H5Camera',
       component: () => import('../views/H5Camera/index.vue')
+    },
+    {
+      path: '/EffectScope',
+      name: 'EffectScope',
+      component: () => import('../views/EffectScope/index.vue')
     }
   ]
 })
