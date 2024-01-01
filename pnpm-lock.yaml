@@ -107,7 +107,11 @@ importers:
         specifier: ^0.12.7
         version: registry.npmmirror.com/path@0.12.7
 
-  packages/vite: {}
+  packages/vite:
+    devDependencies:
+      rollup-demo:
+        specifier: workspace:1.0.0
+        version: link:../rollup
 
 packages:
 

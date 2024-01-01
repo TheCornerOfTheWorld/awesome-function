@@ -1,9 +1,9 @@
-import myExample from './rollup-plugin-my-example.js';
+// import myExample from './rollup-plugin-my-example.js';
 export default ({
-  input: 'main.js',
-  plugins: [myExample()],
+  input: 'rollup-plugin-my-example.js',
+  // plugins: [myExample()],
   output: [{
-    file: 'bundle.js',
-    format: 'es'
+    file: 'rollup-plugin-example.js',
+    format: 'cjs'
   }]
 });

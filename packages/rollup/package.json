@@ -1,10 +1,10 @@
 {
-  "name": "rollup",
+  "name": "rollup-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "exports": {
-    "rollup-plugin-my-example": "./rollup-plugin-my-example.js"
+    "./rollup-plugin-example": "./rollup-plugin-example.js"
   },
   "scripts": {
     "dev": "rollup -c --bundleConfigAsCjs"
