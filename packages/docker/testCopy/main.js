@@ -1,0 +1,1 @@
+document.querySelector('#test').innerHTML = "测试复制功能"
