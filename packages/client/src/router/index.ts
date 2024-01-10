@@ -36,6 +36,11 @@ const router = createRouter({
       path: '/CssAnimation',
       name: 'CssAnimation',
       component: () => import('../views/CssAnimation/demo.vue')
+    },
+    {
+      path: '/VirtualScroll',
+      name: 'VirtualScroll',
+      component: () => import('../views/VirtualScroll/index.vue')
     }
   ]
 })

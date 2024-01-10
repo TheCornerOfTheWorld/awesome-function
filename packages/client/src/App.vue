@@ -16,6 +16,7 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/EffectScope">EffectScope</RouterLink>
         <RouterLink to="/H5Camera">前端调取摄像头并实现拍照功能</RouterLink>
         <RouterLink to="/uploadLargeFile">大文件上传</RouterLink>
+        <RouterLink to="/VirtualScroll">虚拟滚动</RouterLink>
       </nav>
     </div>
   </header>

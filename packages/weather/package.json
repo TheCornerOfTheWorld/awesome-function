@@ -9,10 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@amap/amap-jsapi-loader": "^1.0.1",
     "vue": "^3.3.11"
   },
   "devDependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
     "@vitejs/plugin-vue": "^4.5.2",
     "vite": "^5.0.8"
   }
