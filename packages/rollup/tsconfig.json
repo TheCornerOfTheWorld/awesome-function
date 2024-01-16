@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "strict": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+  },
+  "include": [
+    "**.ts", "**.vue"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/dist",
+  ]
+}
