@@ -38,6 +38,16 @@ const router = createRouter({
       component: () => import('../views/CssAnimation/demo.vue')
     },
     {
+      path: '/FullLove',
+      name: 'FullLove',
+      component: () => import('../views/CssAnimation/fullLove.vue')
+    },
+    {
+      path: '/GhostInput',
+      name: 'GhostInput',
+      component: () => import('../views/GhostInput/ghostInput.vue')
+    },
+    {
       path: '/VirtualScroll',
       name: 'VirtualScroll',
       component: () => import('../views/VirtualScroll/index.vue')
