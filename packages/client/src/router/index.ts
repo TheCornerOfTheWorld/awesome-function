@@ -48,6 +48,11 @@ const router = createRouter({
       component: () => import('../views/GhostInput/ghostInput.vue')
     },
     {
+      path: '/FaceApi',
+      name: 'FaceApi',
+      component: () => import('../views/FaceApi/index.vue')
+    },
+    {
       path: '/VirtualScroll',
       name: 'VirtualScroll',
       component: () => import('../views/VirtualScroll/index.vue')
