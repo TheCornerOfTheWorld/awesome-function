@@ -56,6 +56,11 @@ const router = createRouter({
       path: '/VirtualScroll',
       name: 'VirtualScroll',
       component: () => import('../views/VirtualScroll/index.vue')
+    },
+    {
+      path: '/Intro',
+      name: 'Intro',
+      component: () => import('../views/UserGuide/intro.vue')
     }
   ]
 })
