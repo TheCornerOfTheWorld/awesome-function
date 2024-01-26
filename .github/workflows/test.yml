@@ -42,7 +42,7 @@ jobs:
 
       # 安装依赖 pnpm
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm -r --filter=./packages/client install
 
       # 运行构建脚本
       - name: Run Build Script
