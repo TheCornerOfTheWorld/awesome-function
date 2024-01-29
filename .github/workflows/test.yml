@@ -42,7 +42,7 @@ jobs:
 
       # 安装依赖 pnpm
       - name: Install dependencies
-        run: pnpm -r --filter=./packages/client install
+        run: pnpm -r --filter=./packages/client install --no-frozen-lockfile
 
       # 运行构建脚本
       - name: Run Build Script
@@ -53,6 +53,7 @@ jobs:
         # 此actions的官方文档 https://github.com/JamesIves/github-pages-deploy-action
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          WORKSPACE: "packages/client"
           # 要部署的文件夹，必填，build 构建后的打包文件夹
           FOLDER: dist
           # 希望部署的分支，默认gh-pages
