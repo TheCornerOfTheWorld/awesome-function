@@ -66,6 +66,11 @@ const router = createRouter({
       path: '/AnimateLogo',
       name: 'AnimateLogo',
       component: () => import('../views/AnimateLogo/index.vue')
+    },
+    {
+      path: '/Wave',
+      name: 'Wave',
+      component: () => import('../views/Wave/index.vue')
     }
   ]
 })
