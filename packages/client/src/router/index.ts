@@ -61,6 +61,11 @@ const router = createRouter({
       path: '/Intro',
       name: 'Intro',
       component: () => import('../views/UserGuide/intro.vue')
+    },
+    {
+      path: '/AnimateLogo',
+      name: 'AnimateLogo',
+      component: () => import('../views/AnimateLogo/index.vue')
     }
   ]
 })
