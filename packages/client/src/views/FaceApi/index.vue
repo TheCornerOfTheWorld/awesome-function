@@ -1,5 +1,5 @@
 <template>
-  <div @click="detectFace">照妖镜</div>
+  <a-button class="mb-3" @click="detectFace">真实镜</a-button>
   <div class="relative">
     <img ref="inputImgRef" :src="base64Img" style="max-width: 800px" />
     <canvas ref="overlayRef" class="overlay" />

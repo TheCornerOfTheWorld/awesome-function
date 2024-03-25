@@ -1,10 +1,10 @@
 <template>
-  <TopNav class="py-3 px-12" />
-
-  <div class="w-66vw my-12 mx-auto relative">
-    <img class="rounded-3xl" src="@/assets/sun.jpg" alt="" />
-    <div class="text-center absolute bottom-3 left-2/4 transform -translate-x-1/2">
-      <a-button class="bg-sky-800 text-white" @click="handleClick">let's go</a-button>
+  <TopNav class="py-3 px-12 mb-8" />
+  <div class="home-wrapper w-66vw mx-auto rounded-lg group" @click="handleClick">
+    <div
+      class="inline-block text-white text-2xl transition transition-transform transform -translate-x-full translate-y-50vh group-hover:translate-x-50vw"
+    >
+      Let's go >
     </div>
   </div>
 </template>
@@ -16,4 +16,9 @@ function handleClick() {
   router.push({ name: 'DocView' })
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.home-wrapper {
+  height: 78vh;
+  background-image: url('@/assets/sun.jpg');
+}
+</style>

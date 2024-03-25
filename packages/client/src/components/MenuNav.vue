@@ -1,32 +1,22 @@
 <template>
   <nav class="flex flex-col text-center">
-    <TopNav class="h-16 mx-auto" />
-    <RouterLink to="/EffectScope">EffectScope</RouterLink>
-    <RouterLink to="/H5Camera">前端调取摄像头并实现拍照功能</RouterLink>
-    <RouterLink to="/uploadLargeFile">大文件上传</RouterLink>
-    <RouterLink to="/VirtualScroll">虚拟滚动</RouterLink>
-    <RouterLink to="/FaceApi">人脸识别</RouterLink>
+    <TopNav class="h-16 mx-auto mb-4" />
+    <RouterLink class="py-1" v-for="route in showRoutes" :key="route.path" :to="route.path">
+      {{ route.name }}
+    </RouterLink>
   </nav>
 </template>
 <script setup>
-import { RouterLink } from 'vue-router'
+import { computed, ref } from 'vue'
+import { RouterLink, useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const routes = ref(router.getRoutes())
+
+const showRoutes = computed(() => {
+  const filterRouteList = ['home', '404', 'DocView']
+  return routes.value.filter((i) => i.name && !filterRouteList.includes(i.name))
+})
 </script>
-<style lang="scss" scoped>
-// nav a.router-link-exact-active {
-//   color: var(--color-text);
-// }
-
-// nav a.router-link-exact-active:hover {
-//   background-color: transparent;
-// }
-
-// nav a {
-//   display: inline-block;
-//   padding: 0 1rem;
-//   border-left: 1px solid var(--color-border);
-// }
-
-// nav a:first-of-type {
-//   border: 0;
-// }
-</style>
+<style lang="scss" scoped></style>

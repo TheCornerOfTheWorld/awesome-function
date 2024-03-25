@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-100vh">
-    <MenuNav class="w-64 py-4 border-r-1" />
+    <MenuNav class="w-64 py-4 border-r-1 overflow-auto" />
     <transition name="fade">
       <keep-alive>
         <div class="flex-1 p-8">

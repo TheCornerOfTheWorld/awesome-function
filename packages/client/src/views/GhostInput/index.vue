@@ -1,6 +1,6 @@
 <template>
   <label class="input-container">
-    <input class="input" type="text" v-model="value" @keydown.tab.prevent="handleTab" />
+    <input class="input bg-sky-500" type="text" v-model="value" @keydown.tab.prevent="handleTab" />
     <div class="suggestion-text">{{ suggestion }}</div>
   </label>
 </template>

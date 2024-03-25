@@ -36,14 +36,9 @@ const router = createRouter({
           component: () => import('../views/CssAnimation/demo.vue')
         },
         {
-          path: '/FullLove',
-          name: 'FullLove',
-          component: () => import('../views/CssAnimation/fullLove.vue')
-        },
-        {
           path: '/GhostInput',
           name: 'GhostInput',
-          component: () => import('../views/GhostInput/ghostInput.vue')
+          component: () => import('../views/GhostInput/index.vue')
         },
         {
           path: '/FaceApi',
@@ -79,6 +74,11 @@ const router = createRouter({
           path: '/WeChatShare',
           name: 'WeChatShare',
           component: () => import('../views/WeChatShare/index.vue')
+        },
+        {
+          path: '/IconComponents',
+          name: 'IconComponents',
+          component: () => import('../views/IconComponents/index.vue')
         }
       ]
     },
