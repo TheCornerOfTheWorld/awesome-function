@@ -10,67 +10,88 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      path: '/DocView',
+      name: 'DocView',
+      component: () => import('../views/DocView.vue'),
+      redirect: 'Intro',
+      children: [
+        {
+          path: '/uploadLargeFile',
+          name: 'UploadLargeFile',
+          component: () => import('../views/UploadLargeFile/index.vue')
+        },
+        {
+          path: '/H5Camera',
+          name: 'H5Camera',
+          component: () => import('../views/H5Camera/index.vue')
+        },
+        {
+          path: '/EffectScope',
+          name: 'EffectScope',
+          component: () => import('../views/EffectScope/index.vue')
+        },
+        {
+          path: '/CssAnimation',
+          name: 'CssAnimation',
+          component: () => import('../views/CssAnimation/demo.vue')
+        },
+        {
+          path: '/FullLove',
+          name: 'FullLove',
+          component: () => import('../views/CssAnimation/fullLove.vue')
+        },
+        {
+          path: '/GhostInput',
+          name: 'GhostInput',
+          component: () => import('../views/GhostInput/ghostInput.vue')
+        },
+        {
+          path: '/FaceApi',
+          name: 'FaceApi',
+          component: () => import('../views/FaceApi/index.vue')
+        },
+        {
+          path: '/VirtualScroll',
+          name: 'VirtualScroll',
+          component: () => import('../views/VirtualScroll/index.vue')
+        },
+        {
+          path: '/Intro',
+          name: 'Intro',
+          component: () => import('../views/UserGuide/intro.vue')
+        },
+        {
+          path: '/AnimateLogo',
+          name: 'AnimateLogo',
+          component: () => import('../views/AnimateLogo/index.vue')
+        },
+        {
+          path: '/Wave',
+          name: 'Wave',
+          component: () => import('../views/Wave/index.vue')
+        },
+        {
+          path: '/SvgA',
+          name: 'SvgA',
+          component: () => import('../views/SvgA/index.vue')
+        },
+        {
+          path: '/WeChatShare',
+          name: 'WeChatShare',
+          component: () => import('../views/WeChatShare/index.vue')
+        }
+      ]
+    },
+
+    // 404路由处理
+    {
+      path: '/404',
+      name: '404',
+      component: () => import('@/views/Features/404.vue')
     },
     {
-      path: '/uploadLargeFile',
-      name: 'UploadLargeFile',
-      component: () => import('../views/UploadLargeFile.vue')
-    },
-    {
-      path: '/H5Camera',
-      name: 'H5Camera',
-      component: () => import('../views/H5Camera/index.vue')
-    },
-    {
-      path: '/EffectScope',
-      name: 'EffectScope',
-      component: () => import('../views/EffectScope/index.vue')
-    },
-    {
-      path: '/CssAnimation',
-      name: 'CssAnimation',
-      component: () => import('../views/CssAnimation/demo.vue')
-    },
-    {
-      path: '/FullLove',
-      name: 'FullLove',
-      component: () => import('../views/CssAnimation/fullLove.vue')
-    },
-    {
-      path: '/GhostInput',
-      name: 'GhostInput',
-      component: () => import('../views/GhostInput/ghostInput.vue')
-    },
-    {
-      path: '/FaceApi',
-      name: 'FaceApi',
-      component: () => import('../views/FaceApi/index.vue')
-    },
-    {
-      path: '/VirtualScroll',
-      name: 'VirtualScroll',
-      component: () => import('../views/VirtualScroll/index.vue')
-    },
-    {
-      path: '/Intro',
-      name: 'Intro',
-      component: () => import('../views/UserGuide/intro.vue')
-    },
-    {
-      path: '/AnimateLogo',
-      name: 'AnimateLogo',
-      component: () => import('../views/AnimateLogo/index.vue')
-    },
-    {
-      path: '/Wave',
-      name: 'Wave',
-      component: () => import('../views/Wave/index.vue')
+      path: '/:pathMatch(.*)',
+      redirect: '/404'
     }
   ]
 })

@@ -32,4 +32,5 @@ onScopeDispose(dispose) // 先执行该调用
 
 ## onScopeDispose
 
-在当前活跃的effect作用域上注册一个处理回调函数
+在当前活跃的effect作用域上注册一个处理回调函数；
+这个方法可以作为可复用的组合式函数中 onUnmounted 的替代品，它并不与组件耦合，因为每一个 Vue 组件的 setup() 函数也是在一个 effect 作用域中调用的。
