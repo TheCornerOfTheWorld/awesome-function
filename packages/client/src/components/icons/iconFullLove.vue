@@ -68,10 +68,12 @@ onMounted(() => {
   })
 })
 </script>
-<style lang="scss">
+<style scoped>
 .bg-red {
   background-color: #e7273f;
 }
+</style>
+<style lang="scss">
 .likeBtn {
   display: flex;
   justify-content: center;

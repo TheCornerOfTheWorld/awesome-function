@@ -15,7 +15,7 @@ const suggestions = ['amazing']
 
 watch(value, (val) => {
   if (val) {
-    suggestion.value = suggestions.find((i) => i.includes(val))
+    suggestion.value = suggestions.find((i) => i.includes(val)) || ''
   } else {
     suggestion.value = ''
   }
