@@ -1,7 +1,7 @@
 <template>
   <div class="flex h-100vh">
     <MenuNav
-      class="w-64 py-4 overflow-auto bg-gradient-to-r from-yellow-400 to-white text-gray-400 text-sm hover:text-dark-900"
+      class="w-64 py-4 overflow-auto bg-[#fbeec4] text-gray-400 text-sm hover:text-dark-900"
     />
     <transition name="fade">
       <keep-alive>
