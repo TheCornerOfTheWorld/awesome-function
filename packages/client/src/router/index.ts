@@ -84,6 +84,11 @@ const router = createRouter({
           path: '/VueQuery',
           name: 'VueQuery',
           component: () => import('../views/VueQuery/index.vue')
+        },
+        {
+          path: '/CanvasDemo',
+          name: 'CanvasDemo',
+          component: () => import('../views/CanvasDemo/index.vue')
         }
       ]
     },
