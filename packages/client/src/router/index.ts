@@ -79,6 +79,11 @@ const router = createRouter({
           path: '/IconComponents',
           name: 'IconComponents',
           component: () => import('../views/IconComponents/index.vue')
+        },
+        {
+          path: '/VueQuery',
+          name: 'VueQuery',
+          component: () => import('../views/VueQuery/index.vue')
         }
       ]
     },
