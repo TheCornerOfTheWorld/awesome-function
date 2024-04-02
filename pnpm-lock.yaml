@@ -89,6 +89,9 @@ importers:
       sass:
         specifier: ^1.72.0
         version: 1.72.0
+      shiki:
+        specifier: ^1.2.3
+        version: 1.2.3
       typescript:
         specifier: ~5.2.0
         version: registry.npmmirror.com/typescript@5.2.2
@@ -1003,6 +1006,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@shikijs/core@1.2.3:
+    resolution: {integrity: sha512-SM+aiQVaEK2P53dEcsvhq9+LJPr0rzwezHbMQhHaSrPN4OlOB4vp1qTdhVEKfMg6atdq8s9ZotWW/CSCzWftwg==, tarball: https://registry.npmjs.org/@shikijs/core/-/core-1.2.3.tgz}
+    dev: true
 
   /@tensorflow/tfjs-core@1.7.0:
     resolution: {integrity: sha512-uwQdiklNjqBnHPeseOdG0sGxrI3+d6lybaKu2+ou3ajVeKdPEwpWbgqA6iHjq1iylnOGkgkbbnQ6r2lwkiIIHw==}
@@ -2194,6 +2201,12 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: true
+
+  /shiki@1.2.3:
+    resolution: {integrity: sha512-+v7lO5cJMeV2N2ySK4l+51YX3wTh5I49SLjAOs1ch1DbUfeEytU1Ac9KaZPoZJCVBGycDZ09OBQN5nbcPFc5FQ==, tarball: https://registry.npmjs.org/shiki/-/shiki-1.2.3.tgz}
+    dependencies:
+      '@shikijs/core': 1.2.3
     dev: true
 
   /source-map-js@1.0.2:

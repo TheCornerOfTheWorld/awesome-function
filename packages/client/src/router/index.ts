@@ -89,6 +89,11 @@ const router = createRouter({
           path: '/CanvasDemo',
           name: 'CanvasDemo',
           component: () => import('../views/CanvasDemo/index.vue')
+        },
+        {
+          path: '/ShikiDemo',
+          name: 'ShikiDemo',
+          component: () => import('../views/ShikiDemo/index.vue')
         }
       ]
     },
