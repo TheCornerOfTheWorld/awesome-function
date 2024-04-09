@@ -94,6 +94,11 @@ const router = createRouter({
           path: '/ShikiDemo',
           name: 'ShikiDemo',
           component: () => import('../views/ShikiDemo/index.vue')
+        },
+        {
+          path: '/RecognitionImg',
+          name: 'RecognitionImg',
+          component: () => import('../views/RecognitionImg/index.vue')
         }
       ]
     },
