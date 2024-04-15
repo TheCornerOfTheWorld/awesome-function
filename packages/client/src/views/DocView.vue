@@ -5,7 +5,7 @@
     />
     <transition name="fade">
       <keep-alive>
-        <div class="flex-1 p-8">
+        <div class="flex-1 p-8 overflow-auto">
           <router-view />
         </div>
       </keep-alive>

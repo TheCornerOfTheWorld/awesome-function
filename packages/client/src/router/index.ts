@@ -99,6 +99,11 @@ const router = createRouter({
           path: '/RecognitionImg',
           name: 'RecognitionImg',
           component: () => import('../views/RecognitionImg/index.vue')
+        },
+        {
+          path: '/ScrollAlternately',
+          name: 'ScrollAlternately',
+          component: () => import('../views/ScrollAlternately/index.vue')
         }
       ]
     },
