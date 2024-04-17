@@ -35,6 +35,16 @@
         // 获取当前链接的状态
         // 1 是建立了链接
         console.log(websocket.readyState);
+        let content = {
+          event: "join",
+          mode: 1,
+          group_id: 0,
+          from_user_id: "10086",
+          from_username: "开源技术小栈",
+          to_user_id: "10000",
+          content: "加入会话",
+        };
+        websocket.send(JSON.stringify(content));
       };
 
       // 点击发送消息的事件
@@ -52,11 +62,23 @@
         // 通过 websockte 发送消息
         websocket.send(JSON.stringify(values));
       };
+      // 记时器
+      let timeout = null;
+      function sendHeartbeat() {
+        console.log("客户端定时发送心跳");
+        websocket.send('{"event":"ping","content":"开源技术小栈我在线呢!"}');
+        timeout = setTimeout(sendHeartbeat, 3000);
+      }
 
       // 接收服务器返回的消息
       websocket.onmessage = function (data) {
         // 服务器返回过来的聊天信息
         const chatS = JSON.parse(data.data);
+        console.log("【开源技术小栈】接受消息: " + data.data);
+        let _obj = JSON.parse(data.data);
+        if (_obj.data.event === "init") {
+          sendHeartbeat();
+        }
 
         // 添加到页面上
         charRoom.innerHTML += `
@@ -65,9 +87,11 @@
         <br />
       `;
       };
-
       // 服务器断开连接，客户端会触发
-      // websocket.onclose = function() {}
+      websocket.onclose = function () {
+        clearTimeout(timeout);
+        console.log("没有网了，睡觉去了");
+      };
     </script>
   </body>
 </html>
