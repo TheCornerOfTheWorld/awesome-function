@@ -5,7 +5,7 @@ export default function myExample() {
       return `// 啦啦啦\n${code}`
     },
     load(...args) {
-      console.log('id', args);
+      // console.log('id', args);
       // if (id === 'virtual-module') {
       //   // the source code for "virtual-module"
       //   return 'export default "This is virtual!"';

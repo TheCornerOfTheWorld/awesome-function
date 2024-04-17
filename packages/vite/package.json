@@ -2,6 +2,7 @@
   "name": "vite",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "dev": "vite build"
@@ -11,5 +12,9 @@
   "license": "ISC",
   "devDependencies": {
     "rollup-demo": "workspace:1.0.0"
+  },
+  "dependencies": {
+    "vite": "^5.2.8",
+    "vite-console-promote-plugin": "workspace:^"
   }
 }

@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "exports": {
-    "./rollup-plugin-example": "./rollup-plugin-example.js"
+    "./rollup-plugin-example": "./dist/rollup-plugin-example.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "rollup -c"
   },
