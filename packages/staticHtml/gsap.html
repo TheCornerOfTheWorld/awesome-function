@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"></script>
+    <style>
+      #logo {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+      demo
+      https://zhuanlan.zhihu.com/p/346555713
+      https://www.cclliang.com/2020/06/03/web%E5%BC%80%E5%8F%91/GSAP%EF%BC%88GreenSock%EF%BC%89%EF%BC%9A%E6%9C%80%E5%81%A5%E5%85%A8%E7%9A%84web%E5%8A%A8%E7%94%BB%E5%BA%93%E4%B9%8B%E4%B8%80/ 
+    -->
+    <!-- https://gsap.com/resources -->
+    <div style="height: 100vh"></div>
+    <h1>啊，牛比</h1>
+    <div id="logo">
+      <img
+        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/logo-man.svg"
+        alt=""
+      />
+    </div>
+    <div style="height: 100vh"></div>
+    <script>
+      var tween = gsap.from("#logo", {
+        scrollTrigger: "#logo", // 此行代码表示触发动画的元素，只需要增加该行代码，就可以实现想要的效果。
+        duration: 2,
+        scale: 0.3,
+        ease: "back.out(1.7)",
+        onComplete: function () {
+          // 动画播放完成时调用
+          console.log("111");
+        },
+      });
+
+      gsap.to("h1", {
+        x: 100,
+        scrollTrigger: {
+          trigger: "h1",
+          start: "top bottom",
+          end: "center center",
+          scrub: true,
+        },
+      });
+    </script>
+  </body>
+</html>
