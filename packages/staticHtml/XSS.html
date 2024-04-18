@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .red {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://rawgit.com/leizongmin/js-xss/master/dist/xss.js"></script>
+    &lt;script&gt;alert("xss");&lt;/script&gt;
+    <script>
+      let xss = filterXSS;
+      function demo() {
+        // apply function filterXSS in the same way
+        var options = {
+          whiteList: {
+            div: ["class"],
+          },
+        };
+        var source =
+          '<script>alert("xss");</scr' + "ipt>" + "<div class='red'>123</div>";
+        var html = filterXSS(source, options);
+        console.log("🚀 ~ demo", source, html);
+      }
+      demo();
+      // 允许白名单标签的属性以 data-
+      function onIgnoreTagAttr() {
+        var source2 = '<div a="1" b="2" data-a="3" data-b="4">hello</div>';
+        var html2 = filterXSS(source2, {
+          onIgnoreTagAttr: function (tag, name, value, isWhiteAttr) {
+            if (name.substr(0, 5) === "data-") {
+              // escape its value using built-in escapeAttrValue function
+              return name + '="' + xss.escapeAttrValue(value) + '"';
+            }
+          },
+        });
+        console.log("🚀 ~ 允许白名单标签的属性以 data-", source2, html2);
+      }
+      onIgnoreTagAttr();
+
+      // 允许标签以 x-
+      function onIgnoreTag() {
+        var source = "<x><x-1>he<x-2 checked></x-2>wwww</x-1><a>";
+        var html = xss(source, {
+          onIgnoreTag: function (tag, html, options) {
+            if (tag.substr(0, 2) === "x-") {
+              // do not filter its attributes
+              return html;
+            }
+          },
+        });
+        console.log("🚀 ~ 允许标签以 x- \n%s\nconvert to:\n%s", source, html);
+      }
+      onIgnoreTag();
+
+      // 在 HTML 中解析图像
+      function ImgAnalyse() {
+        var source =
+          '<img src="img1">a<img src="img2">b<img src="img3">c<img src="img4">d';
+        var list = [];
+        var html = xss(source, {
+          onTagAttr: function (tag, name, value, isWhiteAttr) {
+            if (tag === "img" && name === "src") {
+              // Use the built-in friendlyAttrValue function to escape attribute
+              // values. It supports converting entity tags such as &lt; to printable
+              // characters such as <
+              list.push(xss.friendlyAttrValue(value));
+            }
+            // Return nothing, means keep the default handling measure
+          },
+        });
+
+        console.log(
+          "🚀 ~ 在 HTML 中解析图像 \n image list:\n%s",
+          list.join(", ")
+        );
+      }
+      ImgAnalyse();
+    </script>
+  </body>
+</html>
