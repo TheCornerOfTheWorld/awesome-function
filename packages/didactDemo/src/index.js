@@ -72,12 +72,15 @@ function updateDom(dom, prevProps, nextProps) {
 }
 
 function commitRoot() {
+  // 执行删操作
   deletions.forEach(commitWork);
+  // 执行增和改操作
   commitWork(wipRoot.child);
+  // 操作完DOM后，用WIP Fiber Tree替换掉Current Fiber Tree
   currentRoot = wipRoot;
+  // 将WIP Fiber Tree置空
   wipRoot = null;
 }
-
 function commitWork(fiber) {
   if (!fiber) {
     return;
@@ -161,45 +164,58 @@ function performUnitOfWork(fiber) {
   }
 }
 
+// 无状态的 Function Component
 let wipFiber = null;
 let hookIndex = null;
 
 function updateFunctionComponent(fiber) {
   wipFiber = fiber;
+  // 用数组来存储hooks，在React中用链表，下一小节会用到
   hookIndex = 0;
   wipFiber.hooks = [];
+  // 与Host Componenet区别之一就是children需要通过执行函数获得
   const children = [fiber.type(fiber.props)];
   reconcileChildren(fiber, children);
 }
 
+// 此hooks在执行updateFunctionComponent的第10行执行FC的函数时执行
+
 function useState(initial) {
+  // 取之前旧树上的对应hook（通过hookIndex保证顺序）
   const oldHook =
     wipFiber.alternate &&
     wipFiber.alternate.hooks &&
     wipFiber.alternate.hooks[hookIndex];
+  // state初值为上一次的state或者初值（第一次调用时）
+  // queue用来存储所有的setState动作以便进行批处理
   const hook = {
     state: oldHook ? oldHook.state : initial,
-    queue: []
+    queue: [],
   };
-
+  // 更新state
   const actions = oldHook ? oldHook.queue : [];
   actions.forEach(action => {
     hook.state = action(hook.state);
   });
-
-  const setState = action => {
+  // 执行此函数后，会触发重新构建Fiber树
+  const setState = (action) => {
+    // 上一步中执行的就是action方法，此处会将其推入queue
     hook.queue.push(action);
+    // 执行更新，做的工作和render方法相似，因此setState是update的入口
     wipRoot = {
       dom: currentRoot.dom,
       props: currentRoot.props,
-      alternate: currentRoot
+      alternate: currentRoot,
     };
     nextUnitOfWork = wipRoot;
     deletions = [];
   };
-
+  // 执行后将该hook推入新树的hooks数组
   wipFiber.hooks.push(hook);
+  // 为处理下一个hook作准备
   hookIndex++;
+  // 注意此时返回了一个函数setState
+  // setState用到了函数中的局部变量hook，因此形成了一个闭包
   return [hook.state, setState];
 }
 
