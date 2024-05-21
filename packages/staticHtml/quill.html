@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Quill</title>
+    <!-- Include Quill stylesheet -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css"
+      rel="stylesheet"
+    />
+    <!-- Include the Quill library -->
+    <script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
+  </head>
+  <body>
+    <!-- Create the toolbar container -->
+    <div id="toolbar">
+      <button class="ql-bold">Bold</button>
+      <button class="ql-italic">Italic</button>
+    </div>
+
+    <!-- Create the editor container -->
+    <div id="editor1">
+      <p>Hello World!</p>
+      <p>Some initial <strong>bold</strong> text</p>
+      <p><br /></p>
+    </div>
+    <div id="editor2">
+      <p>Hello World!</p>
+      <p>Some initial <strong>bold</strong> text</p>
+      <p><br /></p>
+    </div>
+    <div id="editor3">
+      <p>Hello World!</p>
+      <p>Some initial <strong>bold</strong> text</p>
+      <p><br /></p>
+    </div>
+
+    <!-- Initialize Quill editor -->
+    <script>
+      const quill1 = new Quill("#editor1", {
+        theme: "snow",
+      });
+      const quill2 = new Quill("#editor2", {
+        theme: "snow",
+      });
+      const quill3 = new Quill("#editor3", {
+        theme: "snow",
+      });
+    </script>
+  </body>
+</html>
