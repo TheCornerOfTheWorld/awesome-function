@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.app.json",
+  "include": ["scripts/*"],
+  "exclude": [],
+  "compilerOptions": {
+    "lib": [],
+    "types": ["node", "jsdom"],
+
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true,
+  }
+}
