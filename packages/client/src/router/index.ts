@@ -104,6 +104,11 @@ const router = createRouter({
           path: '/ScrollAlternately',
           name: 'ScrollAlternately',
           component: () => import('../views/ScrollAlternately/index.vue')
+        },
+        {
+          path: '/LightCard',
+          name: 'LightCard',
+          component: () => import('../views/LightCard/index.vue')
         }
       ]
     },
